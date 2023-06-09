@@ -1,6 +1,6 @@
 import Foundation
 
-final class ConvertCurrencyUseCase {
+final class GetHistoricalRatesUseCase {
 
     private let currencyRepository: CurrencyRepositoryInterface
     private let base: String
@@ -14,8 +14,8 @@ final class ConvertCurrencyUseCase {
         self.symbols = symbols
     }
 
-    func perform() -> ObservableRatesData {
-        return currencyRepository.convert(base: base, sympols: symbols.joined(separator: ","))
+    func perform() -> ObservableHistoricalRatesData {
+        return currencyRepository.getHistoricalRates(date: Date().getStringDateThreeDaysAgo() ?? "", base: base, symbols: symbols.joined(separator: ","))
     }
 
 }

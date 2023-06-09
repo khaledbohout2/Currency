@@ -15,4 +15,8 @@ final class CurrencyRepository: CurrencyRepositoryInterface {
     func getSupportedSympols() -> ObservableSupportedSymbolsData {
         return currencyAPIService.getSuppotedSymbols()
     }
+
+    func getHistoricalRates(date: String, base: String, symbols: String) -> ObservableHistoricalRatesData {
+        return currencyAPIService.getHistoricalRates(date: date, base: base, symbols: symbols)
+    }
 }

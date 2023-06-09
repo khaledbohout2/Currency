@@ -27,6 +27,9 @@
 		1BC07FB12A32C76B00FAA72B /* ConvertCurrencyUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC07FB02A32C76B00FAA72B /* ConvertCurrencyUseCase.swift */; };
 		1BC07FB32A32C8BC00FAA72B /* SupportedSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC07FB22A32C8BC00FAA72B /* SupportedSymbols.swift */; };
 		1BC07FB52A32CF1600FAA72B /* GetSupportedSympolsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC07FB42A32CF1600FAA72B /* GetSupportedSympolsUseCase.swift */; };
+		1BC07FB72A32D5CC00FAA72B /* HistoricalRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC07FB62A32D5CC00FAA72B /* HistoricalRates.swift */; };
+		1BC07FB92A32DC0000FAA72B /* GetHistoricalRatesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC07FB82A32DC0000FAA72B /* GetHistoricalRatesUseCase.swift */; };
+		1BC07FBC2A32DDBD00FAA72B /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC07FBB2A32DDBD00FAA72B /* Date.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +53,9 @@
 		1BC07FB02A32C76B00FAA72B /* ConvertCurrencyUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertCurrencyUseCase.swift; sourceTree = "<group>"; };
 		1BC07FB22A32C8BC00FAA72B /* SupportedSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportedSymbols.swift; sourceTree = "<group>"; };
 		1BC07FB42A32CF1600FAA72B /* GetSupportedSympolsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSupportedSympolsUseCase.swift; sourceTree = "<group>"; };
+		1BC07FB62A32D5CC00FAA72B /* HistoricalRates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalRates.swift; sourceTree = "<group>"; };
+		1BC07FB82A32DC0000FAA72B /* GetHistoricalRatesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHistoricalRatesUseCase.swift; sourceTree = "<group>"; };
+		1BC07FBB2A32DDBD00FAA72B /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,7 @@
 		1B3355A32A2E895A0005F85F /* Utiles */ = {
 			isa = PBXGroup;
 			children = (
+				1BC07FBA2A32DDAD00FAA72B /* Extensions */,
 				1BC07FAA2A32B94600FAA72B /* Constants.swift */,
 			);
 			path = Utiles;
@@ -181,6 +188,7 @@
 			children = (
 				1BC07FB02A32C76B00FAA72B /* ConvertCurrencyUseCase.swift */,
 				1BC07FB42A32CF1600FAA72B /* GetSupportedSympolsUseCase.swift */,
+				1BC07FB82A32DC0000FAA72B /* GetHistoricalRatesUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -198,6 +206,7 @@
 			children = (
 				1BC07FA82A32AF5A00FAA72B /* CurrencyRates.swift */,
 				1BC07FB22A32C8BC00FAA72B /* SupportedSymbols.swift */,
+				1BC07FB62A32D5CC00FAA72B /* HistoricalRates.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -225,6 +234,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1BC07FBA2A32DDAD00FAA72B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1BC07FBB2A32DDBD00FAA72B /* Date.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,6 +321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BC07FB72A32D5CC00FAA72B /* HistoricalRates.swift in Sources */,
 				1B33558E2A2E873C0005F85F /* AppDelegate.swift in Sources */,
 				1BC07FAB2A32B94600FAA72B /* Constants.swift in Sources */,
 				1BC07FB52A32CF1600FAA72B /* GetSupportedSympolsUseCase.swift in Sources */,
@@ -317,7 +335,9 @@
 				1B3355A22A2E87B20005F85F /* AppDelegate+appearance.swift in Sources */,
 				1BC07FAF2A32C62D00FAA72B /* CurrencyRepositoryInterface.swift in Sources */,
 				1BC07FA02A32AB4700FAA72B /* CurrencyEndPoint.swift in Sources */,
+				1BC07FB92A32DC0000FAA72B /* GetHistoricalRatesUseCase.swift in Sources */,
 				1B5D1D322A327D41008B2216 /* APIRequest.swift in Sources */,
+				1BC07FBC2A32DDBD00FAA72B /* Date.swift in Sources */,
 				1BC07FA92A32AF5A00FAA72B /* CurrencyRates.swift in Sources */,
 				1B3355B02A2E8A930005F85F /* Coordinator.swift in Sources */,
 			);
