@@ -10,6 +10,6 @@ struct Constants {
     }
 
     static var accesskey: String {
-        return "\(link)/api/latest"
+        return "a2389e472292211c5858ea52797567b2"
     }
 }
