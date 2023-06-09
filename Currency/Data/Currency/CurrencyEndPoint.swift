@@ -2,25 +2,38 @@ import Foundation
 
 enum CurrencyEndPoint: APIRequest {
 
-case login(email: String, password: String)
+    case convert(base: String, symbols: String)
+    case getSupportedSymbols
 
     var method: RequestType {
-        return .POST
+        switch self {
+        case .convert:
+            return .POST
+        case .getSupportedSymbols:
+            return .GET
+        }
+    }
+
+    var url: URL {
+        return URL(string: "\(Constants.baseUrl)/")!
+            .appendingPathComponent(path)
     }
 
     var path: String {
         switch self {
-        case .login:
-            return "auth/login"
+        case .convert:
+            return "latest"
+        case .getSupportedSymbols:
+            return "symbols"
         }
     }
 
     var parameters: [String : String] {
         switch self {
-        case .login(let email, let password):
-            return ["" : ""]
+        case .convert(let base, let symbols):
+            return ["base" : base, "symbols": symbols, "access_key": Constants.accesskey]
+        default: return ["access_key": Constants.accesskey]
         }
     }
-
 
 }

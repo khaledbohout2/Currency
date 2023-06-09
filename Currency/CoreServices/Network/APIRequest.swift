@@ -8,6 +8,7 @@ protocol APIRequest {
     var method: RequestType { get }
     var path: String { get }
     var parameters: [String : String] { get }
+    var url: URL { get }
 }
 
 extension APIRequest {
