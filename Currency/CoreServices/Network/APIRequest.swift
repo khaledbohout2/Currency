@@ -12,8 +12,8 @@ protocol APIRequest {
 }
 
 extension APIRequest {
-    func request(with baseURL: URL) -> URLRequest {
-        guard var components = URLComponents(url: baseURL.appendingPathComponent(path), resolvingAgainstBaseURL: false) else {
+    func request() -> URLRequest {
+        guard var components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
             fatalError("Unable to create URL components")
         }
 
@@ -21,11 +21,11 @@ extension APIRequest {
             URLQueryItem(name: String($0), value: String($1))
         }
 
-        guard let url = components.url else {
+        guard let reqUrl = components.url else {
             fatalError("Could not get url")
         }
 
-        var request = URLRequest(url: url)
+        var request = URLRequest(url: reqUrl)
         request.httpMethod = method.rawValue
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         return request

@@ -2,7 +2,7 @@ import Foundation
 
 struct Constants {
     static var link: String {
-        return "https://data.fixer.io"
+        return "http://data.fixer.io"
     }
 
     static var baseUrl: String {

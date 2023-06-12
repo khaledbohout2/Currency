@@ -1,6 +1,10 @@
 import Foundation
 
-final class GetHistoricalRatesUseCase {
+protocol GetHistoricalRatesUseCaseInterface {
+    func perform() -> ObservableHistoricalRatesData
+}
+
+final class GetHistoricalRatesUseCase: GetHistoricalRatesUseCaseInterface {
 
     private let currencyRepository: CurrencyRepositoryInterface
     private let base: String

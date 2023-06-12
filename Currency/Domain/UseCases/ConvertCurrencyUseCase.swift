@@ -1,21 +1,19 @@
 import Foundation
 
-final class ConvertCurrencyUseCase {
+protocol ConvertCurrencyUseCaseInterface {
+    func perform(from: String, to: String, amount: String) -> ObservableRatesData
+}
+
+final class ConvertCurrencyUseCase: ConvertCurrencyUseCaseInterface {
 
     private let currencyRepository: CurrencyRepositoryInterface
-    private let base: String
-    private let symbols: [String]
 
-    init(currencyRepository: CurrencyRepositoryInterface,
-         base: String,
-         symbols: [String]) {
+    init(currencyRepository: CurrencyRepositoryInterface) {
         self.currencyRepository = currencyRepository
-        self.base = base
-        self.symbols = symbols
     }
 
-    func perform() -> ObservableRatesData {
-        return currencyRepository.convert(base: base, sympols: symbols.joined(separator: ","))
+    func perform(from: String, to: String, amount: String) -> ObservableRatesData {
+        return currencyRepository.convert(from: from, to: to, amount: amount)
     }
 
 }

@@ -1,6 +1,10 @@
 import Foundation
 
-final class GetSupportedSympolsUseCase {
+protocol GetSupportedSympolsUseCaseInterface {
+    func perform() -> ObservableSupportedSymbolsData
+}
+
+final class GetSupportedSympolsUseCase: GetSupportedSympolsUseCaseInterface {
 
     private let currencyRepository: CurrencyRepositoryInterface
 

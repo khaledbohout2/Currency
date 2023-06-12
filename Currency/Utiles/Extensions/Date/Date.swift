@@ -1,10 +1,3 @@
-//
-//  Date.swift
-//  Currency
-//
-//  Created by Khaled Bohout on 09/06/2023.
-//
-
 import Foundation
 
 extension Date {

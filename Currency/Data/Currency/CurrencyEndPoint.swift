@@ -2,15 +2,17 @@ import Foundation
 
 enum CurrencyEndPoint: APIRequest {
 
-    case convert(base: String, symbols: String)
+    case convert(from: String, to: String, amount: String)
     case getSupportedSymbols
     case getHistoricalRates(date: String, base: String, symbols: String)
 
     var method: RequestType {
         switch self {
         case .convert:
-            return .POST
-        case .getSupportedSymbols, .getHistoricalRates:
+            return .GET
+        case .getSupportedSymbols:
+            return .GET
+        case .getHistoricalRates:
             return .GET
         }
     }
@@ -33,11 +35,12 @@ enum CurrencyEndPoint: APIRequest {
 
     var parameters: [String : String] {
         switch self {
-        case .convert(let base, let symbols):
-            return ["base" : base, "symbols": symbols, "access_key": Constants.accesskey]
+        case .getSupportedSymbols:
+            return ["access_key": Constants.accesskey]
+        case .convert(let from, let to, let amount):
+            return ["from" : from, "symbols": to, "amount": amount, "access_key": Constants.accesskey]
         case .getHistoricalRates(_, let base, let symbols):
             return ["base" : base, "symbols": symbols, "access_key": Constants.accesskey]
-        default: return ["access_key": Constants.accesskey]
         }
     }
 

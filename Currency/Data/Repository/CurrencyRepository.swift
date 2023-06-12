@@ -8,8 +8,8 @@ final class CurrencyRepository: CurrencyRepositoryInterface {
         self.currencyAPIService = currencyAPIService
     }
 
-    func convert(base: String, sympols: String) -> ObservableRatesData {
-        return currencyAPIService.convert(base: base, symbols: sympols)
+    func convert(from: String, to: String, amount: String) -> ObservableRatesData {
+        return currencyAPIService.convert(from: from, to: to, amount: amount)
     }
 
     func getSupportedSympols() -> ObservableSupportedSymbolsData {
@@ -19,4 +19,5 @@ final class CurrencyRepository: CurrencyRepositoryInterface {
     func getHistoricalRates(date: String, base: String, symbols: String) -> ObservableHistoricalRatesData {
         return currencyAPIService.getHistoricalRates(date: date, base: base, symbols: symbols)
     }
+
 }
