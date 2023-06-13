@@ -10,6 +10,10 @@ struct Constants {
     }
 
     static var accesskey: String {
-        return "a2389e472292211c5858ea52797567b2"
+        return "1e022e303cdabeabe1174e1935251b91"
+    }
+
+    static var popularCurrencies: [String] {
+        return ["USD", "EUR", "JPY", "GBP", "AUD", "CAD", "CHF", "CNH", "HKD", "NZD"]
     }
 }

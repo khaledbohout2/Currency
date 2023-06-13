@@ -5,7 +5,6 @@ import UIKit
 
 extension UIViewController {
 
-    func parseNetworkError() {
         func parseNetworkError(error: NetworkError) {
             var errorMessage = ""
             switch error {
@@ -23,7 +22,7 @@ extension UIViewController {
 
             showErrorView(errorMessage: errorMessage)
         }
-    }
+
 
     func showErrorView(errorMessage: String) {
         let errorDialogMessage = UIAlertController(title: "Error", message: errorMessage, preferredStyle: .alert)

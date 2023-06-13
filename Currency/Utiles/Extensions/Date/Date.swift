@@ -1,10 +1,10 @@
 import Foundation
 
 extension Date {
-    func getStringDateThreeDaysAgo() -> String? {
+    func getStringDateThreeDaysAgo(from: Int) -> String? {
         guard let threeDaysAgoDate = Calendar.current.date(
-           byAdding: .minute,
-           value: -2,
+           byAdding: .day,
+           value: -from,
            to: self) else {return nil}
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"

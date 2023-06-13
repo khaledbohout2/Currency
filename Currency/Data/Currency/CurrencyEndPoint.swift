@@ -40,7 +40,7 @@ enum CurrencyEndPoint: APIRequest {
         case .convert(let from, let to, let amount):
             return ["from" : from, "symbols": to, "amount": amount, "access_key": Constants.accesskey]
         case .getHistoricalRates(_, let base, let symbols):
-            return ["base" : base, "symbols": symbols, "access_key": Constants.accesskey]
+            return ["base" : "EUR", "symbols": "\(symbols), \(base)", "access_key": Constants.accesskey]
         }
     }
 

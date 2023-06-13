@@ -11,12 +11,16 @@ final class ConvertCurrencyViewModel {
     private let convertCurrencyUseCase: ConvertCurrencyUseCase
     private let getSupportedSympolsUseCase: GetSupportedSympolsUseCase
 
+    private let cordinator: MainCoordinator
+
     private let disposeBag = DisposeBag()
 
     init(convertCurrencyUseCase: ConvertCurrencyUseCase,
-         getSupportedSympolsUseCase: GetSupportedSympolsUseCase) {
+         getSupportedSympolsUseCase: GetSupportedSympolsUseCase,
+         cordinator: MainCoordinator) {
         self.convertCurrencyUseCase = convertCurrencyUseCase
         self.getSupportedSympolsUseCase = getSupportedSympolsUseCase
+        self.cordinator = cordinator
     }
 
     func getValidCurrencySymbols() {
@@ -44,7 +48,7 @@ final class ConvertCurrencyViewModel {
 
     func getConvertedCurrency(fromSymbol: String, toSymbol: String, valueToConvert: String) {
         self.loading.onNext(true)
-        convertCurrencyUseCase.perform(from: fromSymbol, to: toSymbol, amount: valueToConvert).subscribe { [weak self] event in
+        convertCurrencyUseCase.perform(from: fromSymbol, to: [toSymbol], amount: valueToConvert).subscribe { [weak self] event in
             guard let self = self else {return}
             self.loading.onNext(false)
             switch event {
@@ -64,6 +68,10 @@ final class ConvertCurrencyViewModel {
             }
         }
         .disposed(by: disposeBag)
+    }
+
+    func navigateToDetails(baseCurrency: String, toCurrency: String) {
+        cordinator.currencyDetails(baseCurrency: baseCurrency, toCurrency: toCurrency)
     }
 
 }

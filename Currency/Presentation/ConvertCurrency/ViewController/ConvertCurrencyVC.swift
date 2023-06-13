@@ -18,8 +18,8 @@ class ConvertCurrencyVC: BaseVC<ConvertCurrencyView> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupViewModelBindings()
-        self.viewModel.getValidCurrencySymbols()
+        setupViewModelBindings()
+        viewModel.getValidCurrencySymbols()
     }
 
     func setupViewModelBindings() {
@@ -61,7 +61,7 @@ class ConvertCurrencyVC: BaseVC<ConvertCurrencyView> {
         viewModel.error.observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self ] error in
                 guard let self = self else { return }
-                self.parseNetworkError()
+                self.parseNetworkError(error: error)
             }).disposed(by: disposeBag)
 
         mainView.fromTextField.rx.controlEvent([.editingDidEnd])
@@ -86,6 +86,10 @@ class ConvertCurrencyVC: BaseVC<ConvertCurrencyView> {
 
             self.mainView.inputValueTextField.text = "1"
             self.callCurrencyConversionAPI()
+        }
+
+        let _ = mainView.detailsBtn.rx.tap.bind {
+            self.viewModel.navigateToDetails(baseCurrency: self.mainView.fromTextField.text!, toCurrency: self.mainView.toTextField.text!)
         }
 
     }

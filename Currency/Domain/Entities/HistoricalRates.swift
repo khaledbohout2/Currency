@@ -5,7 +5,8 @@ struct HistoricalRates: Codable {
     let historical: Bool?
     let date: String?
     let timestamp: Int?
-    let base: String?
-    let rates: [String: String]?
+    var base: String?
+    var rates: [String: Double]?
+    var toCurrency: String?
     let error: ErrorModel?
 }
