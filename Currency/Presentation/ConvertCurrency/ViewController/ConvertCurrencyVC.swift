@@ -61,7 +61,7 @@ class ConvertCurrencyVC: BaseVC<ConvertCurrencyView> {
         viewModel.error.observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self ] error in
                 guard let self = self else { return }
-
+                self.parseNetworkError()
             }).disposed(by: disposeBag)
 
         mainView.fromTextField.rx.controlEvent([.editingDidEnd])

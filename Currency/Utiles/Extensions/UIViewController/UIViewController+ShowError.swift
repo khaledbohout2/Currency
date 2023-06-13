@@ -1,10 +1,6 @@
 //
 //  UIViewController+parseNetworkError.swift
 //  Currency
-//
-//  Created by Khaled Bohout on 12/06/2023.
-//
-
 import UIKit
 
 extension UIViewController {
