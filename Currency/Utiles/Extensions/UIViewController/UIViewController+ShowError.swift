@@ -1,6 +1,3 @@
-//
-//  UIViewController+parseNetworkError.swift
-//  Currency
 import UIKit
 
 extension UIViewController {

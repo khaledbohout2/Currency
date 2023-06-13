@@ -14,7 +14,6 @@ class CurrencyDetailsViewModel {
 
     private let getHistoricalRatesUseCase: GetHistoricalRatesUseCaseInterface
     private let getDatesForThreeDaysUseCase: GetDatesForThreeDaysUseCaseInterface
-    private let getSupportedSympolsUseCase: GetSupportedSympolsUseCaseInterface
     private let convertFromEuroUseCase: ConvertFromEuroUseCaseInterface
     private let convertCurrencyUseCase: ConvertCurrencyUseCaseInterface
 
@@ -28,7 +27,6 @@ class CurrencyDetailsViewModel {
          toCurrency: String,
          getHistoricalRatesUseCase: GetHistoricalRatesUseCaseInterface,
          getDatesForThreeDaysUseCase: GetDatesForThreeDaysUseCaseInterface,
-         getSupportedSympolsUseCase: GetSupportedSympolsUseCase,
          convertFromEuroUseCase: ConvertFromEuroUseCaseInterface,
          convertCurrencyUseCase: ConvertCurrencyUseCaseInterface,
          cordinator: MainCoordinator) {
@@ -36,7 +34,6 @@ class CurrencyDetailsViewModel {
         self.toCurrency = toCurrency
         self.getHistoricalRatesUseCase = getHistoricalRatesUseCase
         self.getDatesForThreeDaysUseCase = getDatesForThreeDaysUseCase
-        self.getSupportedSympolsUseCase = getSupportedSympolsUseCase
         self.convertFromEuroUseCase = convertFromEuroUseCase
         self.convertCurrencyUseCase = convertCurrencyUseCase
         self.cordinator = cordinator

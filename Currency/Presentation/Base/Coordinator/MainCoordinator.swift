@@ -24,14 +24,12 @@ final class MainCoordinator: Coordinator {
         let currencyRepository = CurrencyRepository(currencyAPIService: currencyAPIService)
         let getHistoricalRatesUseCase = GetHistoricalRatesUseCase(currencyRepository: currencyRepository)
         let getDatesForThreeDaysUseCase = GetDatesForThreeDaysUseCase()
-        let getSupportedSympolsUseCase = GetSupportedSympolsUseCase(currencyRepository: currencyRepository)
         let convertFromEuroUseCase = ConvertFromEuroUseCase()
         let convertCurrencyUseCase = ConvertCurrencyUseCase(currencyRepository: currencyRepository)
         let vModel = CurrencyDetailsViewModel(baseCurrency: baseCurrency,
                                               toCurrency: toCurrency,
                                               getHistoricalRatesUseCase: getHistoricalRatesUseCase,
                                               getDatesForThreeDaysUseCase: getDatesForThreeDaysUseCase,
-                                              getSupportedSympolsUseCase: getSupportedSympolsUseCase,
                                               convertFromEuroUseCase: convertFromEuroUseCase,
                                               convertCurrencyUseCase: convertCurrencyUseCase,
                                               cordinator: self)
