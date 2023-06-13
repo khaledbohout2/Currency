@@ -1,8 +1,9 @@
 
 enum NetworkError: Error {
-    case invalidURL(String)
-    case invalidResponse(String)
+    case invalidAPIKey(String)
+    case invalidSymbols(String)
     case decodingError(String)
-    case genericError(String)
+    case APIRequestsReached(String)
     case internetError(String)
+    case genericError(String)
 }

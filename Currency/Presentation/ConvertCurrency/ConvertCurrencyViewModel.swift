@@ -32,6 +32,10 @@ final class ConvertCurrencyViewModel {
             case .next(let result):
                 switch result {
                 case .success(let symbolsaData):
+                    guard symbolsaData.success else {
+                        self.handleError(error: symbolsaData.error)
+                        return
+                    }
                     self.currencySymbols.onNext(symbolsaData.symbols?.keys.sorted() ?? [])
                 case .failure(let error):
                     self.error.onNext(error)
@@ -68,6 +72,20 @@ final class ConvertCurrencyViewModel {
             }
         }
         .disposed(by: disposeBag)
+    }
+
+    func handleError(error: ErrorModel?) {
+        guard let error = error,
+              let code = error.code else {return}
+        if code == 101 {
+            self.error.onNext(NetworkError.invalidAPIKey("No API Key was specified or an invalid API Key was specified."))
+        } else if code == 104 {
+            self.error.onNext(NetworkError.APIRequestsReached("The maximum allowed API amount of monthly API requests has been reached."))
+        } else if code == 202 {
+            self.error.onNext(NetworkError.invalidSymbols("One or more invalid symbols have been specified."))
+        } else {
+            self.error.onNext(NetworkError.genericError("some error happened, please try again later"))
+        }
     }
 
     func navigateToDetails(baseCurrency: String, toCurrency: String) {

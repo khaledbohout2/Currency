@@ -53,6 +53,10 @@ class CurrencyDetailsViewModel {
                 case .next(let result):
                     switch result {
                     case .success(let ratesData):
+                        guard ratesData.success else {
+                            self.handleError(error: ratesData.error)
+                            return
+                        }
                         self.historicalRates.append(self.convertFromEuroUseCase.perform(rates: ratesData, myBase: self.baseCurrency, toCurrency: self.toCurrency))
                         dispatchGroup.leave()
                     case .failure(let error):
@@ -83,6 +87,10 @@ class CurrencyDetailsViewModel {
             case .next(let result):
                 switch result {
                 case .success(let convertedData):
+                    guard convertedData.success else {
+                        self.handleError(error: convertedData.error)
+                        return
+                    }
                     guard let rates = convertedData.rates else {return}
                     self.popularCurrencies.onNext(rates)
                 case .failure(let error):
@@ -97,6 +105,20 @@ class CurrencyDetailsViewModel {
             self.loading.onNext(false)
         }
         .disposed(by: disposeBag)
+    }
+
+    func handleError(error: ErrorModel?) {
+        guard let error = error,
+              let code = error.code else {return}
+        if code == 101 {
+            self.error.onNext(NetworkError.invalidAPIKey("No API Key was specified or an invalid API Key was specified."))
+        } else if code == 104 {
+            self.error.onNext(NetworkError.APIRequestsReached("The maximum allowed API amount of monthly API requests has been reached."))
+        } else if code == 202 {
+            self.error.onNext(NetworkError.invalidSymbols("One or more invalid symbols have been specified."))
+        } else {
+            self.error.onNext(NetworkError.genericError("some error happened, please try again later"))
+        }
     }
 
 }

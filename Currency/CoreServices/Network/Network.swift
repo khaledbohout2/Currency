@@ -19,16 +19,14 @@ class Network: NetworkProtocol {
                         result = Result<T, NetworkError>.success(model)
                         observer.onNext(result!)
                         observer.onCompleted()
-                        debugPrint(model)
                     } catch let error {
                         result = Result<T, NetworkError>.failure(NetworkError.decodingError("Invalid Response received."))
                         observer.onError(error)
                         observer.onCompleted()
-                        debugPrint(error)
                     }
                 } else {
                     if let error = error {
-                        result = Result<T, NetworkError>.failure(NetworkError.decodingError("Something unexpected occured."))
+                        result = Result<T, NetworkError>.failure(NetworkError.internetError("Something unexpected occured."))
                         observer.onError(error)
                         observer.onCompleted()
                         debugPrint(error)
