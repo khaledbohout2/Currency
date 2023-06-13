@@ -1,10 +1,3 @@
-//
-//  CurrencyDataTableVC.swift
-//  Currency
-//
-//  Created by Khaled Bohout on 13/06/2023.
-//
-
 import UIKit
 import RxSwift
 import RxCocoa

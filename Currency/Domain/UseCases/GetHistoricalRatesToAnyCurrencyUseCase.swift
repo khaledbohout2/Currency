@@ -1,10 +1,3 @@
-//
-//  GetHistoricalRatesToAnyCurrencyUseCase.swift
-//  Currency
-//
-//  Created by Khaled Bohout on 13/06/2023.
-//
-
 import Foundation
 
 protocol ConvertFromEuroUseCaseInterface {

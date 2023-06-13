@@ -7,9 +7,7 @@ extension AppDelegate {
     }
 
     func setNavigationAppearance() {
-            UINavigationBar.appearance().tintColor = .white
-            UINavigationBar.appearance().shadowImage = UIImage()
-            UINavigationBar.appearance().backgroundColor = .white
+        UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().isTranslucent = false
     }
 
