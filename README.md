@@ -31,8 +31,3 @@ Test Cases\
 
 What is next:\
 1. Include unit tests for all applicable areas to be tested.
-
-    
-
-
-# NewsApp
