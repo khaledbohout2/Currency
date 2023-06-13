@@ -1,9 +1,9 @@
 import Foundation
 import RxSwift
 
-typealias ObservableRatesData = Observable<Result<ConvertingResult, Error>>
-typealias ObservableSupportedSymbolsData = Observable<Result<SupportedSymbols, Error>>
-typealias ObservableHistoricalRatesData = Observable<Result<HistoricalRates, Error>>
+typealias ObservableRatesData = Observable<Result<ConvertingResult, NetworkError>>
+typealias ObservableSupportedSymbolsData = Observable<Result<SupportedSymbols, NetworkError>>
+typealias ObservableHistoricalRatesData = Observable<Result<HistoricalRates, NetworkError>>
 
 protocol CurrencyAPIServiceInterface {
     func convert(from: String, to: String, amount: String) -> ObservableRatesData

@@ -16,7 +16,7 @@
 		1B4258042A367A5400B7AD1E /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 1B4258032A367A5400B7AD1E /* RxCocoa */; };
 		1B4258062A367A5400B7AD1E /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 1B4258052A367A5400B7AD1E /* RxRelay */; };
 		1B4258082A367A5400B7AD1E /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1B4258072A367A5400B7AD1E /* RxSwift */; };
-		1B44519A2A37B28C00D47CDD /* UIViewController+parseNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4451992A37B28C00D47CDD /* UIViewController+parseNetworkError.swift */; };
+		1B44519A2A37B28C00D47CDD /* UIViewController+ShowError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4451992A37B28C00D47CDD /* UIViewController+ShowError.swift */; };
 		1B44519C2A37B49600D47CDD /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B44519B2A37B49600D47CDD /* ErrorModel.swift */; };
 		1B5D1D322A327D41008B2216 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5D1D312A327D41008B2216 /* APIRequest.swift */; };
 		1B5D1D342A327D69008B2216 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5D1D332A327D69008B2216 /* Network.swift */; };
@@ -54,7 +54,7 @@
 		1B3355A12A2E87B20005F85F /* AppDelegate+appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+appearance.swift"; sourceTree = "<group>"; };
 		1B3355AF2A2E8A930005F85F /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		1B3355B12A2E8AA10005F85F /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
-		1B4451992A37B28C00D47CDD /* UIViewController+parseNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+parseNetworkError.swift"; sourceTree = "<group>"; };
+		1B4451992A37B28C00D47CDD /* UIViewController+ShowError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ShowError.swift"; sourceTree = "<group>"; };
 		1B44519B2A37B49600D47CDD /* ErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
 		1B5D1D312A327D41008B2216 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		1B5D1D332A327D69008B2216 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
@@ -251,7 +251,7 @@
 		1B4451982A37B21C00D47CDD /* UIViewController */ = {
 			isa = PBXGroup;
 			children = (
-				1B4451992A37B28C00D47CDD /* UIViewController+parseNetworkError.swift */,
+				1B4451992A37B28C00D47CDD /* UIViewController+ShowError.swift */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";
@@ -448,7 +448,7 @@
 				1BC07FB92A32DC0000FAA72B /* GetHistoricalRatesUseCase.swift in Sources */,
 				1BF6223E2A364E26006824CB /* LoadingView.swift in Sources */,
 				1BC07FC12A34BC8800FAA72B /* ConvertCurrencyView.swift in Sources */,
-				1B44519A2A37B28C00D47CDD /* UIViewController+parseNetworkError.swift in Sources */,
+				1B44519A2A37B28C00D47CDD /* UIViewController+ShowError.swift in Sources */,
 				1B5D1D322A327D41008B2216 /* APIRequest.swift in Sources */,
 				1BC07FBC2A32DDBD00FAA72B /* Date.swift in Sources */,
 				1B44519C2A37B49600D47CDD /* ErrorModel.swift in Sources */,

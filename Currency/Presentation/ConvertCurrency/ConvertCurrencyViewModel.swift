@@ -5,7 +5,7 @@ final class ConvertCurrencyViewModel {
 
     public let currencySymbols: PublishSubject<[String]> = PublishSubject()
     public let convertedValue: PublishSubject<String> = PublishSubject()
-    public let error: PublishSubject<Error> = PublishSubject()
+    public let error: PublishSubject<NetworkError> = PublishSubject()
     public let loading: PublishSubject<Bool> = PublishSubject()
 
     private let convertCurrencyUseCase: ConvertCurrencyUseCase
@@ -20,8 +20,10 @@ final class ConvertCurrencyViewModel {
     }
 
     func getValidCurrencySymbols() {
+        self.loading.onNext(true)
         getSupportedSympolsUseCase.perform().subscribe { [weak self] event in
             guard let self = self else {return}
+            self.loading.onNext(false)
             switch event {
             case .next(let result):
                 switch result {
@@ -31,6 +33,7 @@ final class ConvertCurrencyViewModel {
                     self.error.onNext(error)
                 }
             case .error(let error):
+                guard let error = error as? NetworkError else {return}
                 self.error.onNext(error)
             case .completed:
                 break
@@ -40,8 +43,10 @@ final class ConvertCurrencyViewModel {
     }
 
     func getConvertedCurrency(fromSymbol: String, toSymbol: String, valueToConvert: String) {
+        self.loading.onNext(true)
         convertCurrencyUseCase.perform(from: fromSymbol, to: toSymbol, amount: valueToConvert).subscribe { [weak self] event in
             guard let self = self else {return}
+            self.loading.onNext(false)
             switch event {
             case .next(let result):
                 switch result {
@@ -52,6 +57,7 @@ final class ConvertCurrencyViewModel {
                     self.error.onNext(error)
                 }
             case .error(let error):
+                guard let error = error as? NetworkError else {return}
                 self.error.onNext(error)
             case .completed:
                 break
