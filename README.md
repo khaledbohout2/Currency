@@ -1,6 +1,6 @@
 # Currency
 CurrencyConverter
-It's an iOS project which is designed to helps customers to hand different currency conversions.n display more details about the specific news article.\
+It's an iOS project which is designed to helps customers to hand different currency conversions.\
 
 The project is built using MVVM-C architecture where:\
  - M represents Model to hold the data entities,\
